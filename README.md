@@ -1,8 +1,8 @@
 # karma-ng-html2js-define-preprocessor [![Build Status](https://travis-ci.org/aaronallport/karma-ng-html2js-define-preprocessor.png?branch=master)](https://travis-ci.org/aaronallport/karma-ng-html2js-define-preprocessor)
 
-> Preprocessor for converting HTML files to [AngularJS](http://angularjs.org/) templates.
+> Preprocessor for converting HTML files to [AngularJS](http://angularjs.org/) templates, wrapped in `define` calls for use with RequireJS/AMD projects.
 
-*Note:* If you are looking for a general preprocessor that is not tight to Angular, check out [karma-html2js-preprocessor](https://github.com/karma-runner/karma-html2js-preprocessor).
+*Note:* If you are looking for a general preprocessor that is not tied to Angular, check out [karma-html2js-preprocessor](https://github.com/karma-runner/karma-html2js-preprocessor).
 
 ## Installation
 
