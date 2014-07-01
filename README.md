@@ -1,4 +1,4 @@
-# karma-ng-html2js-preprocessor [![Build Status](https://travis-ci.org/karma-runner/karma-ng-html2js-preprocessor.png?branch=master)](https://travis-ci.org/karma-runner/karma-ng-html2js-preprocessor)
+# karma-ng-html2js-define-preprocessor [![Build Status](https://travis-ci.org/karma-runner/karma-ng-html2js-define-preprocessor.png?branch=master)](https://travis-ci.org/karma-runner/karma-ng-html2js-define-preprocessor)
 
 > Preprocessor for converting HTML files to [AngularJS](http://angularjs.org/) templates.
 
@@ -6,19 +6,19 @@
 
 ## Installation
 
-The easiest way is to keep `karma-ng-html2js-preprocessor` as a devDependency in your `package.json`.
+The easiest way is to keep `karma-ng-html2js-define-preprocessor` as a devDependency in your `package.json`.
 ```json
 {
   "devDependencies": {
     "karma": "~0.10",
-    "karma-ng-html2js-preprocessor": "~0.1"
+    "karma-ng-html2js-define-preprocessor": "~0.1"
   }
 }
 ```
 
 You can simple do it by:
 ```bash
-npm install karma-ng-html2js-preprocessor --save-dev
+npm install karma-ng-html2js-define-preprocessor --save-dev
 ```
 
 ## Configuration
@@ -37,7 +37,7 @@ module.exports = function(config) {
       '**/*.html'
     ],
 
-    ngHtml2JsPreprocessor: {
+    ngHtml2JsDefinePreprocessor: {
       // strip this from the file path
       stripPrefix: 'public/',
       // prepend this to the
@@ -58,7 +58,7 @@ module.exports = function(config) {
 
 ## How does it work ?
 
-This preprocessor converts HTML files into JS strings and generates Angular modules. These modules, when loaded, puts these HTML files into the `$templateCache` and therefore Angular won't try to fetch them from the server.
+This preprocessor converts HTML files into JS strings and generates Angular modules, wrapped in `define` calls. These modules, when loaded, puts these HTML files into the `$templateCache` and therefore Angular won't try to fetch them from the server.
 
 For instance this `template.html`...
 ```html
@@ -66,12 +66,12 @@ For instance this `template.html`...
 ```
 ... will be served as `template.html.js`:
 ```js
-angular.module('template.html', []).config(function($templateCache) {
-  $templateCache.put('template.html', '<div>something</div>');
+define(['angular'], function(angular) {
+  angular.module('template.html', []).config(function($templateCache) {
+    $templateCache.put('template.html', '<div>something</div>');
+  });
 });
 ```
-
-See the [ng-directive-testing](https://github.com/vojtajina/ng-directive-testing) for a complete example.
 
 ----
 
