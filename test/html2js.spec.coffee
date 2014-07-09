@@ -1,4 +1,4 @@
-describe 'preprocessors html2js', ->
+describe 'preprocessors html2js-define', ->
   chai = require('chai')
 
   templateHelpers = require('./helpers/template_cache')

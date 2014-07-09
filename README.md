@@ -27,7 +27,7 @@ npm install karma-ng-html2js-define-preprocessor --save-dev
 module.exports = function(config) {
   config.set({
     preprocessors: {
-      '**/*.html': ['ng-html2js']
+      '**/*.html': ['ng-html2js-define']
     },
 
     files: [
