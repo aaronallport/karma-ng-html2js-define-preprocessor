@@ -21,6 +21,11 @@ module.exports = (chai, utils) ->
   evaluateTemplate = (processedContent) ->
     modules = {}
 
+    processedContent = processedContent.replace /define.*module/g, "angular.module"
+    processedContent = processedContent.replace /}\);}\);/g, "});"
+
+    console.log(processedContent)
+
     context =
       # Mock for AngularJS $templateCache
       angular:
