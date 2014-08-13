@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/karma-runner/karma-ng-html2js-define-preprocessor.git"
+    "url": "git://github.com/aaronallport/karma-ng-html2js-define-preprocessor.git"
   },
   "keywords": [
     "karma-plugin",
