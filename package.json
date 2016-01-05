@@ -32,14 +32,5 @@
   "peerDependencies": {
     "karma": ">=0.9"
   },
-  "license": "MIT",
-  "contributors": [
-    "Vojta Jina <vojta.jina@gmail.com>",
-    "Friedel Ziegelmayer <friedel.ziegelmayer@gmail.com>",
-    "Lukasz Bandzarewicz <lucassus@gmail.com>",
-    "Robin Roestenburg <robin@roestenburg.io>",
-    "Lucas Galfasó <lgalfaso@gmail.com>",
-    "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
-    "Brian Lenzo <brian.lenzo@gmail.com>"
-  ]
+  "license": "MIT"
 }
