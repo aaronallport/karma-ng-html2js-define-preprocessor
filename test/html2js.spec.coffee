@@ -43,6 +43,14 @@ describe 'preprocessors html2js-define', ->
       expect(file.path).to.equal '/base/path/file.html.js'
       done()
 
+  it 'should not append *.js to a processed file\'s path more than once', (done) ->
+    file = new File '/base/path/file.html'
+
+    process '', file, (processedContent) ->
+      process '', file, (processedContent) ->
+        expect(file.path).to.equal '/base/path/file.html.js'
+        done()
+
 
   it 'should preserve new lines', (done) ->
     file = new File '/base/path/file.html'
