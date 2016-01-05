@@ -1,4 +1,9 @@
-# karma-ng-html2js-define-preprocessor [![Build Status](https://travis-ci.org/aaronallport/karma-ng-html2js-define-preprocessor.svg?branch=master)](https://travis-ci.org/aaronallport/karma-ng-html2js-define-preprocessor)
+# karma-ng-html2js-define-preprocessor
+
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/aaronallport/karma-ng-html2js-define-preprocessor)
+[![npm version](https://img.shields.io/npm/v/karma-ng-html2js-define-preprocessor.svg?style=flat-square)](https://www.npmjs.com/package/karma-ng-html2js-define-preprocessor) [![npm downloads](https://img.shields.io/npm/dm/karma-ng-html2js-define-preprocessor.svg?style=flat-square)](https://www.npmjs.com/package/karma-ng-html2js-define-preprocessor)
+
+[![Build Status](https://img.shields.io/travis/aaronallport/karma-ng-html2js-define-preprocessor/master.svg?style=flat-square)](https://travis-ci.org/aaronallport/karma-ng-html2js-define-preprocessor) [![Dependency Status](https://img.shields.io/david/aaronallport/karma-ng-html2js-define-preprocessor.svg?style=flat-square)](https://david-dm.org/aaronallport/karma-ng-html2js-define-preprocessor) [![devDependency Status](https://img.shields.io/david/dev/aaronallport/karma-ng-html2js-define-preprocessor.svg?style=flat-square)](https://david-dm.org/aaronallport/karma-ng-html2js-define-preprocessor#info=devDependencies)
 
 > Preprocessor for converting HTML files to [AngularJS 1.x](http://angularjs.org/) templates, wrapped in `define` calls for use with RequireJS/AMD projects.
 
@@ -8,19 +13,9 @@
 
 ## Installation
 
-The easiest way is to keep `karma-ng-html2js-define-preprocessor` as a devDependency in your `package.json`.
-```json
-{
-  "devDependencies": {
-    "karma": "~0.10",
-    "karma-ng-html2js-define-preprocessor": "~0.1"
-  }
-}
-```
-
-You can simple do it by:
+The easiest way is to keep `karma-ng-html2js-preprocessor` as a devDependency in your `package.json`. Just run
 ```bash
-npm install karma-ng-html2js-define-preprocessor --save-dev
+$ npm install karma-ng-html2js-define-preprocessor --save-dev
 ```
 
 ## Configuration
