@@ -116,12 +116,12 @@ describe 'preprocessors html2js-define', ->
             .to.haveContent HTML
           done()
 
-    describe 'stripSufix', ->
+    describe 'stripSuffix', ->
       beforeEach ->
-        process = createPreprocessor stripSufix: '.ext'
+        process = createPreprocessor stripSuffix: '.ext'
 
 
-      it 'strips the given sufix from the file path', (done) ->
+      it 'strips the given suffix from the file path', (done) ->
         file = new File 'file.html.ext'
         HTML = '<html></html>'
 
@@ -149,3 +149,64 @@ describe 'preprocessors html2js-define', ->
             .to.defineTemplateId('generated_id_for/path/file.html').and
             .to.haveContent HTML
           done()
+
+    describe 'moduleName', ->
+      it 'should generate code with a given module name', ->
+        process = createPreprocessor
+          moduleName: 'foo'
+        file1 = new File '/base/tpl/one.html'
+        HTML1 = '<span>one</span>'
+        file2 = new File '/base/tpl/two.html'
+        HTML2 = '<span>two</span>'
+        bothFilesContent = ''
+
+        process HTML1, file1, (processedContent) ->
+          bothFilesContent += processedContent
+
+        process HTML2, file2, (processedContent) ->
+          bothFilesContent += processedContent
+
+        # evaluate both files (to simulate multiple files in the browser)
+        expect(bothFilesContent)
+          .to.defineModule('foo').and
+          .to.defineTemplateId('tpl/one.html').and
+          .to.haveContent(HTML1).and
+          .to.defineTemplateId('tpl/two.html').and
+          .to.haveContent(HTML2)
+
+
+      it 'should generate code with multiple module names', ->
+        process = createPreprocessor
+          moduleName: (htmlPath) ->
+            module = htmlPath.split('/')[0]
+            if module != 'tpl'
+              module
+
+        file1 = new File '/base/app/one.html'
+        HTML1 = '<span>one</span>'
+        file2 = new File '/base/common/two.html'
+        HTML2 = '<span>two</span>'
+        file3 = new File '/base/tpl/three.html'
+        HTML3 = '<span>three</span>'
+        threeFilesContent = ''
+
+        process HTML1, file1, (processedContent) ->
+          threeFilesContent += processedContent
+
+        process HTML2, file2, (processedContent) ->
+          threeFilesContent += processedContent
+
+        process HTML3, file3, (processedContent) ->
+          threeFilesContent += processedContent
+
+        # evaluate three files (to simulate multiple module names)
+        expect(threeFilesContent)
+          .to.defineModule('app').and
+          .to.defineTemplateId('app/one.html').and
+          .to.haveContent(HTML1).and
+          .to.defineModule('common').and
+          .to.defineTemplateId('common/two.html').and
+          .to.haveContent(HTML2)
+          .to.defineModule('tpl/three.html').and
+          .to.defineTemplateId('tpl/three.html').and
+          .to.haveContent(HTML3)
