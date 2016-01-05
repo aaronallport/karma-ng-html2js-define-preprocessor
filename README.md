@@ -123,7 +123,7 @@ For instance this `template.html`...
 ... will be served as `template.html.js`:
 ```js
 define(['angular'], function(angular) {
-  angular.module('template.html', []).config(['$templateCache', function($templateCache) {
+  angular.module('template.html', []).run(['$templateCache', function($templateCache) {
     $templateCache.put('template.html', '<div>something</div>');
   }]);
 });
