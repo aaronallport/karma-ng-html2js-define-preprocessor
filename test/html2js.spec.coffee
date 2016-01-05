@@ -156,24 +156,12 @@ describe 'preprocessors html2js-define', ->
           moduleName: 'foo'
         file1 = new File '/base/tpl/one.html'
         HTML1 = '<span>one</span>'
-        file2 = new File '/base/tpl/two.html'
-        HTML2 = '<span>two</span>'
-        bothFilesContent = ''
 
         process HTML1, file1, (processedContent) ->
-          bothFilesContent += processedContent
-
-        process HTML2, file2, (processedContent) ->
-          bothFilesContent += processedContent
-
-        # evaluate both files (to simulate multiple files in the browser)
-        expect(bothFilesContent)
-          .to.defineModule('foo').and
-          .to.defineTemplateId('tpl/one.html').and
-          .to.haveContent(HTML1).and
-          .to.defineTemplateId('tpl/two.html').and
-          .to.haveContent(HTML2)
-
+          expect(processedContent)
+            .to.defineModule('foo').and
+            .to.defineTemplateId('tpl/one.html').and
+            .to.haveContent(HTML1)
 
       it 'should generate code with multiple module names', ->
         process = createPreprocessor
