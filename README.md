@@ -38,6 +38,12 @@ module.exports = function(config) {
       '**/*.html'
     ],
 
+    // if you have defined plugins explicitly, add karma-ng-html2js-define-preprocessor
+    // plugins: [
+    //     <your plugins>
+    //     'karma-ng-html2js-define-preprocessor',
+    // ]
+
     ngHtml2JsDefinePreprocessor: {
       // strip this from the file path
       stripPrefix: 'public/',
