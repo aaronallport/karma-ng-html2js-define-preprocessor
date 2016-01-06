@@ -1,6 +1,6 @@
 {
   "name": "karma-ng-html2js-define-preprocessor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Karma plugin. Compile AngularJS templates to JavaScript on the fly, but wrapped in a define call for use with AMD-based projects.",
   "main": "lib/index.js",
   "scripts": {
